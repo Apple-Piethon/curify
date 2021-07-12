@@ -1,17 +1,36 @@
 import React, {Component} from 'react';
+import { withStyles } from '@material-ui/core/styles';
 import SpotifyWebApi from 'spotify-web-api-js';
 
 const spotifyApi = new SpotifyWebApi();
 
-// const Index = () => {
-//     return (
-//         <div className='Index'>
-//             <a href='http://localhost:8888'> Login to Spotify</a>
-//         </div>
-//     )
-// }
+const useStyles = theme => ({
+    login: {
+        display: 'grid',
+        placeItems: 'center',
+        height: '100vh',
+        backgroundColor: 'black',
 
-//test
+        '& img':{
+            width: '50%'
+        },
+
+        '& a':{
+            padding: '20px',
+            borderRadius: '99px',
+            backgroundColor: '#1db954',
+            fontWeight: 600,
+            color: 'white',
+            textDecoration: 'none',
+        },
+
+        '& a:hover':{
+            backgroundColor:' white',
+            borderColor: '#1db954',
+            color: '#1db954',
+        }
+    },
+});
 
 class Index extends Component {
     constructor(){
@@ -40,38 +59,16 @@ class Index extends Component {
         return hashParams;
     }
 
-    getNowPlaying() {
-        spotifyApi.getMyCurrentPlaybackState()
-         .then((response) => {
-             this.setState({
-                 nowPlaying: {
-                     name: response.item.name,
-                     albumArt: response.item.album.images[0].url
-                 }
-             });
-         })
-    }
-
     render() {
+        const { classes } = this.props;
         return (
-            <div className="Index">
-                <a href='http://localhost:8888'>
+            <div className={classes.login}>
+                <a href='http://localhost:8888/login'>
                     Login to Spotify
                 </a>
-                <div>
-                    Now Playing: { this.state.nowPlaying.name }
-                </div>
-                <div>
-                    <img src={this.state.nowPlaying.albumArt} 
-                         style={ {height:150}} />
-                </div>
-                { this.state.loggedIn &&
-                  <button onClick={() => this.getNowPlaying()}>
-                      Check Now Playing
-                  </button>}
             </div>
         );
     }
 }
 
-export default Index
+export default withStyles(useStyles)(Index)
