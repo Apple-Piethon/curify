@@ -8,8 +8,8 @@ const useStyles = theme => ({
     login: {
         display: 'grid',
         placeItems: 'center',
-        height: '100vh',
-        backgroundColor: 'black',
+        height: '150vh',
+        backgroundColor: '#1DB9A2',
 
         '& img':{
             width: '50%'
@@ -18,16 +18,16 @@ const useStyles = theme => ({
         '& a':{
             padding: '20px',
             borderRadius: '99px',
-            backgroundColor: '#1db954',
+            backgroundColor: '#1DB954',
             fontWeight: 600,
-            color: 'white',
+            color: 'black',
             textDecoration: 'none',
         },
 
         '& a:hover':{
-            backgroundColor:' white',
+            backgroundColor:'black',
             borderColor: '#1db954',
-            color: '#1db954',
+            color: '#1DB954',
         }
     },
 });
@@ -64,7 +64,8 @@ class Index extends Component {
         return (
             <div className={classes.login}>
                 <a href='http://localhost:8888/login'>
-                    Login to Spotify
+                    <img src="images/spotify-icon-black.eps" alt="spotify-icon"/>
+                    Connect to Spotify
                 </a>
             </div>
         );

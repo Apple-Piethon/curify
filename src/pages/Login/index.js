@@ -7,7 +7,7 @@ const useStyles = makeStyles({
         display: 'grid',
         placeItems: 'center',
         height: '100vh',
-        backgroundColor: 'black',
+        backgroundColor: '#1DB9A2',
 
         '& img':{
             width: '50%'
@@ -34,7 +34,7 @@ function Login() {
     return (
         <div className={classes.login}>
             <img src="https://getheavy.com/wp-content/uploads/2019/12/spotify2019-830x350.jpg" alt="Spotify-Logo"/>
-            <a href={loginUrl}>LOGIN WITH SPOTIFY</a>
+            <a href={loginUrl}>Connect To Spotify</a>
         </div>
     )
 }
