@@ -15,3 +15,14 @@ code {
 div, button {
   margin: 10px;
 }
+
+@font-face {
+  font-family: 'CircularStd';
+  src: local('CircularStd'), 
+       url(./fonts/CircularStd/CircularStd-Black.woff) format('woff');
+       /* url(./fonts/CircularStd-Black.woff2) format('woff2'); */
+}
+
+* {
+  font-family: 'CircularStd';
+}

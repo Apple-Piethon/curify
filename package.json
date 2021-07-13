@@ -40,6 +40,11 @@
       "last 1 safari version"
     ]
   },
-  "engines": {"node": ">=14.17.0"},
-  "engineStrict": true
+  "engines": {
+    "node": ">=14.17.0"
+  },
+  "engineStrict": true,
+  "devDependencies": {
+    "@iconify/react": "^1.1.4"
+  }
 }

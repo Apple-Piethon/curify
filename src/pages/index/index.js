@@ -1,35 +1,64 @@
 import React, {Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
+
 import SpotifyWebApi from 'spotify-web-api-js';
 
 const spotifyApi = new SpotifyWebApi();
 
+// const useStyles = theme => ({
+//     login: {
+//         display: 'grid',
+//         placeItems: 'center',
+//         height: '150vh',
+//         backgroundColor: '#23CCB3',
+
+//         '& img':{
+//             width: '5%'
+//         },
+
+//         '& a':{
+//             padding: '20px',
+//             borderRadius: '99px',
+//             backgroundColor: '#1DB954',
+//             fontWeight: 700,
+//             color: 'black',
+//             textDecoration: 'none',
+//             fontSize: 24,
+//             position: 'center',
+//         },
+//         '& a:hover':{
+//             backgroundColor:'black',
+//             borderColor: '#1db954',
+//             color: '#1DB954',
+//         }
+//     },
+// });
+
 const useStyles = theme => ({
-    login: {
-        display: 'grid',
-        placeItems: 'center',
-        height: '150vh',
-        backgroundColor: '#1DB9A2',
-
-        '& img':{
-            width: '50%'
+    root: {
+        height: 55,
+        width: 318.96,
+        background: '#1DB954',
+        color: 'black',
+        padding: '0 30px',
+        boxShadow: '0 4px 4px rgba(0, 0, 0, 0.25)',
+        '&:hover': {
+            background: '#25BB5A',
+            color: 'white',
         },
-
-        '& a':{
-            padding: '20px',
-            borderRadius: '99px',
-            backgroundColor: '#1DB954',
-            fontWeight: 600,
-            color: 'black',
-            textDecoration: 'none',
-        },
-
-        '& a:hover':{
-            backgroundColor:'black',
-            borderColor: '#1db954',
-            color: '#1DB954',
+    },
+    label: {
+        textTransform: 'none',
+        color: 'black',
+        fontSize: 24,
+        fontWeight: 'bold',
+        lineHeight: 30,
+        '&:hover': {
+            color: 'white',
         }
     },
+
 });
 
 class Index extends Component {
@@ -62,14 +91,28 @@ class Index extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <div className={classes.login}>
-                <a href='http://localhost:8888/login'>
-                    <img src="images/spotify-icon-black.eps" alt="spotify-icon"/>
-                    Connect to Spotify
-                </a>
+            <div 
+                style={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    backgroundColor: '#23CCB3',
+                }}
+            >
+            <Button 
+                classes={{
+                    root: classes.root,
+                    label: classes.label,
+                }} 
+                href='http://localhost:8888/login'
+                >
+                
+                Connect to Spotify
+            </Button>
             </div>
         );
     }
 }
 
+// export default Index
 export default withStyles(useStyles)(Index)
