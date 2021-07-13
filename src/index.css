@@ -20,9 +20,49 @@ div, button {
   font-family: 'CircularStd';
   src: local('CircularStd'), 
        url(./fonts/CircularStd/CircularStd-Black.woff) format('woff');
-       /* url(./fonts/CircularStd-Black.woff2) format('woff2'); */
 }
 
 * {
   font-family: 'CircularStd';
+}
+
+.inner-circle {
+  position: absolute;
+  display: flex;
+  width: 360px;
+  height: 360px;
+  background: rgba(126, 126, 126, 0.2);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  margin: -180px 0px 0px -180px;
+}
+
+.circle-txt {
+  margin: auto;
+  font-size: 72px;
+  color: white;
+  text-align: center;
+}
+
+.circle-desc {
+  margin:auto;
+  font-size: 18px;
+  color: white;
+  text-align: center;
+}
+
+.outer-circle {
+  position: relative;
+  display: flex;
+  width: 460px;
+  height: 460px;
+  background: rgba(126, 126, 126, 0.2);
+  border-radius: 50%;
+}
+
+.container {
+  display: grid;
+  place-items: center;
+  grid-template-areas: "inner-div";
 }

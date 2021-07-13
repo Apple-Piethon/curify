@@ -6,34 +6,6 @@ import SpotifyWebApi from 'spotify-web-api-js';
 
 const spotifyApi = new SpotifyWebApi();
 
-// const useStyles = theme => ({
-//     login: {
-//         display: 'grid',
-//         placeItems: 'center',
-//         height: '150vh',
-//         backgroundColor: '#23CCB3',
-
-//         '& img':{
-//             width: '5%'
-//         },
-
-//         '& a':{
-//             padding: '20px',
-//             borderRadius: '99px',
-//             backgroundColor: '#1DB954',
-//             fontWeight: 700,
-//             color: 'black',
-//             textDecoration: 'none',
-//             fontSize: 24,
-//             position: 'center',
-//         },
-//         '& a:hover':{
-//             backgroundColor:'black',
-//             borderColor: '#1db954',
-//             color: '#1DB954',
-//         }
-//     },
-// });
 
 const useStyles = theme => ({
     root: {
@@ -58,6 +30,14 @@ const useStyles = theme => ({
             color: 'white',
         }
     },
+
+    circle: {
+        display: 'flex',
+        width: 100,
+        height: 100,
+        background: 'green',
+        borderRadius: 50,
+    }
 
 });
 
@@ -91,28 +71,35 @@ class Index extends Component {
     render() {
         const { classes } = this.props;
         return (
-            <div 
-                style={{
-                    display: 'flex',
+            <div style={{  
+                    display: 'flex', 
                     justifyContent: 'center',
                     alignItems: 'center',
-                    backgroundColor: '#23CCB3',
-                }}
-            >
-            <Button 
-                classes={{
-                    root: classes.root,
-                    label: classes.label,
-                }} 
-                href='http://localhost:8888/login'
-                >
-                
-                Connect to Spotify
-            </Button>
+                    backgroundColor: '#23CCB3'
+                    }}>
+                <div className="container">
+                    <div className="outer-circle">
+                        <div className="inner-circle">
+                            <div className="circle-txt">Curify.<br/>
+                                <div className="circle-desc">Relax and let us plan your night.</div>
+                            </div>
+                            {/* <div className="circle-desc">Relax and let us plan your night.</div> */}
+                        </div>
+                    </div>
+                    <div>
+                        <Button
+                            classes={{
+                                root: classes.root,
+                                label: classes.label,
+                            }}
+                            href='http://localhost:8888/login'
+                            >Connect to Spotify
+                        </Button>
+                    </div>
+                </div>
             </div>
         );
     }
 }
 
-// export default Index
 export default withStyles(useStyles)(Index)
