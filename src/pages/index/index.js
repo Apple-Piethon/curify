@@ -1,6 +1,6 @@
 import React, {Component}  from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Icon, Button, Box } from '@material-ui/core';
+import { Button, Box } from '@material-ui/core';
 import { FaSpotify } from 'react-icons/fa';
 
 
@@ -9,6 +9,7 @@ import SpotifyWebApi from 'spotify-web-api-js';
 const spotifyApi = new SpotifyWebApi();
 
 const useStyles = theme => ({
+    // Spotify button text
     root: {
         background: '#1DB954',
         color: 'black',
@@ -18,11 +19,10 @@ const useStyles = theme => ({
         },
     },
 
-    // Allow button to be below the title
+    // Spotify button box
     button: {
-        margin: theme.spacing(1),
+        margin: theme.spacing(7),
         borderRadius: "5em",
-        // color:'green',
     },
     
 
@@ -57,11 +57,6 @@ class Index extends Component {
 
     render() {
         const { classes } = this.props;
-        const svgIcon = (
-            <Icon>
-                <img alt="spotify" src="spotify-icon-black.png"/>
-            </Icon>
-        )
         return (
             <Box
                 display="grid"
