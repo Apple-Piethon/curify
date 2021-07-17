@@ -2,7 +2,7 @@ import React from 'react'
 import {Switch, Route} from 'react-router-dom'
 import Landing from '../pages/Landing'
 import NotFound from '../pages/NotFound'
-import ShowPick from '../pages/ShowPick'
+import PickShow from '../pages/PickShow'
 
 const Routes = () => {
     return (
@@ -11,7 +11,7 @@ const Routes = () => {
                 <Landing />
             </Route>
             <Route exact path="/showpick">
-                <ShowPick />
+                <PickShow />
             </Route>
             <Route exact path="*">
                 <NotFound />

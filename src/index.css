@@ -71,7 +71,6 @@ div, button {
   margin: -180px 0px 0px -180px;
 }
 
-
 .circle-txt {
   margin: auto;
   font-size: 72px;
@@ -86,9 +85,10 @@ div, button {
   text-align: center;
 }
 
-
-.container {
-  display: grid;
-  place-items: center;
-  grid-template-areas: "inner-div";
+/* PICK SHOW PAGE */
+.ps-title {
+  margin: auto;
+  font-size: 64px;
+  color: #3F3F3F;
+  text-align: center;
 }
