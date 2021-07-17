@@ -20,7 +20,7 @@ const useStyles = theme => ({
 
     // Spotify button box
     button: {
-        margin: theme.spacing(7),
+        margin: theme.spacing(5),
         borderRadius: "5em",
     },
     
@@ -68,7 +68,6 @@ class Index extends Component {
 
                 <Box 
                     m="auto"
-                    display="grid"
                 >
                 <div>
                     <div id="container">
@@ -80,19 +79,23 @@ class Index extends Component {
                         </div>
                     </div>
                     
-                </div>
-                    
                     </div>
+                    
+                </div>
+                <div id="container-btn">
                     <Button 
                         href="http://localhost:8888/login"
                         variant="contained"
                         disableRipple="true"
+                        justifyContent="center"
+                        alignItems="center"
                         startIcon={<FaSpotify/>}
                         className={classes.button}
                         classes={{root: classes.root}}
                     >
                         Connect to Spotify
                     </Button>
+                </div>
                 </Box>
             </Box>
         );
