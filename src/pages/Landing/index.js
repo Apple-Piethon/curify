@@ -70,7 +70,7 @@ class Index extends Component {
                     m="auto"
                     display="grid"
                 >
-                <div id="outer-container">
+                <div>
                     <div id="container">
                         <div className="outer-circle">
                     </div>
