@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 import { Button, Box } from '@material-ui/core';
 import { FaSpotify } from 'react-icons/fa';
 
-
 import SpotifyWebApi from 'spotify-web-api-js';
 
 const spotifyApi = new SpotifyWebApi();
@@ -58,6 +57,7 @@ class Index extends Component {
     render() {
         const { classes } = this.props;
         return (
+
             <Box
                 display="grid"
                 bgcolor="#23CCB3"
@@ -65,16 +65,23 @@ class Index extends Component {
                 justifyContent="center"
             >
 
+
                 <Box 
                     m="auto"
                     display="grid"
                 >
-                    <div className="outer-circle">
-                        <div className="inner-circle">
-                            <div className="circle-txt">Curify.<br/>
-                                <div className="circle-desc">Relax and let us plan your night.</div>
-                            </div>
+                <div id="outer-container">
+                    <div id="container">
+                        <div className="outer-circle">
+                    </div>
+                    <div className="inner-circle">
+                        <div className="circle-txt">Curify.<br/>
+                            <div className="circle-desc">Relax and let us plan your night.</div>
                         </div>
+                    </div>
+                    
+                </div>
+                    
                     </div>
                     <Button 
                         href="http://localhost:8888/login"
@@ -86,7 +93,6 @@ class Index extends Component {
                     >
                         Connect to Spotify
                     </Button>
-
                 </Box>
             </Box>
         );

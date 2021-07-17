@@ -1,17 +1,17 @@
 import React from 'react'
 import {Switch, Route} from 'react-router-dom'
-import Index from '../pages/Index/'
+import Landing from '../pages/Landing'
 import NotFound from '../pages/NotFound'
-import Login from '../pages/Login'
+import ShowPick from '../pages/ShowPick'
 
 const Routes = () => {
     return (
         <Switch>
             <Route exact path="/">
-                <Index />
+                <Landing />
             </Route>
-            <Route exact path="/logintest">
-                <Login />
+            <Route exact path="/showpick">
+                <ShowPick />
             </Route>
             <Route exact path="*">
                 <NotFound />

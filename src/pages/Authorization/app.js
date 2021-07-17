@@ -103,13 +103,16 @@ app.get('/callback', function(req, res) {
           console.log(body);
         });
 
+        // REDIRECT WHEN LOGIN SUCESS
         // we can also pass the token to the browser to make requests from there
-        // res.redirect('http://localhost:3000/#' +
-        res.redirect('/#' +
-          querystring.stringify({
-            access_token: access_token,
-            refresh_token: refresh_token
-          }));
+        res.redirect('http://localhost:3000/showpick' 
+        // +
+        // res.redirect('/#' +
+          // querystring.stringify({
+          //   access_token: access_token,
+          //   refresh_token: refresh_token
+          // })
+          );
       } else {
         res.redirect('/#' +
           querystring.stringify({
