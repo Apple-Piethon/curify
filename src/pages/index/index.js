@@ -1,43 +1,30 @@
-import React, {Component} from 'react';
+import React, {Component}  from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
+import { Icon, Button, Box } from '@material-ui/core';
+import { FaSpotify } from 'react-icons/fa';
+
 
 import SpotifyWebApi from 'spotify-web-api-js';
 
 const spotifyApi = new SpotifyWebApi();
 
-
 const useStyles = theme => ({
     root: {
-        height: 55,
-        width: 318.96,
         background: '#1DB954',
         color: 'black',
-        padding: '0 30px',
-        boxShadow: '0 4px 4px rgba(0, 0, 0, 0.25)',
         '&:hover': {
             background: '#25BB5A',
             color: 'white',
         },
     },
-    label: {
-        textTransform: 'none',
-        color: 'black',
-        fontSize: 24,
-        fontWeight: 'bold',
-        lineHeight: 30,
-        '&:hover': {
-            color: 'white',
-        }
-    },
 
-    circle: {
-        display: 'flex',
-        width: 100,
-        height: 100,
-        background: 'green',
-        borderRadius: 50,
-    }
+    // Allow button to be below the title
+    button: {
+        margin: theme.spacing(1),
+        borderRadius: "5em",
+        // color:'green',
+    },
+    
 
 });
 
@@ -70,36 +57,46 @@ class Index extends Component {
 
     render() {
         const { classes } = this.props;
+        const svgIcon = (
+            <Icon>
+                <img alt="spotify" src="spotify-icon-black.png"/>
+            </Icon>
+        )
         return (
-            <div style={{  
-                    display: 'flex', 
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    backgroundColor: '#23CCB3'
-                    }}>
-                <div className="container">
+            <Box
+                display="grid"
+                bgcolor="#23CCB3"
+                alignItems="center"
+                justifyContent="center"
+            >
+
+                <Box 
+                    m="auto"
+                    display="grid"
+                >
                     <div className="outer-circle">
                         <div className="inner-circle">
                             <div className="circle-txt">Curify.<br/>
                                 <div className="circle-desc">Relax and let us plan your night.</div>
                             </div>
-                            {/* <div className="circle-desc">Relax and let us plan your night.</div> */}
                         </div>
                     </div>
-                    <div>
-                        <Button
-                            classes={{
-                                root: classes.root,
-                                label: classes.label,
-                            }}
-                            href='http://localhost:8888/login'
-                            >Connect to Spotify
-                        </Button>
-                    </div>
-                </div>
-            </div>
+                    <Button 
+                        href="http://localhost:8888/login"
+                        variant="contained"
+                        disableRipple="true"
+                        startIcon={<FaSpotify/>}
+                        className={classes.button}
+                        classes={{root: classes.root}}
+                    >
+                        Connect to Spotify
+                    </Button>
+
+                </Box>
+            </Box>
         );
     }
 }
+
 
 export default withStyles(useStyles)(Index)
