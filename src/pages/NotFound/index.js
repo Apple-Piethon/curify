@@ -1,10 +1,18 @@
 import React from 'react'
+import { Box } from '@material-ui/core';
 
 const NotFound = () => {
     return (
-        <p>
+        <Box
+            display="grid"
+            bgcolor="#EEEEEE"
+            alignItems="center"
+            justifyContent="center"
+        >
+        <div className="ps-title">
             NOT FOUND 404
-        </p>
+        </div>
+        </Box>
     )
 }
 

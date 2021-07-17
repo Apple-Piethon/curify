@@ -28,8 +28,6 @@ div, button {
 
 /* LANDING PAGE */
 #container {
-  /* width: 460px;
-  height: 460px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -60,8 +58,8 @@ div, button {
 .outer-circle {
   position: relative;
   display: flex;
-  width: 460px;
-  height: 460px;
+  width: 450px;
+  height: 450px;
   background: rgba(126, 126, 126, 0.2);
   border-radius: 50%;
   animation: pulse-dot 2.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) -.4s infinite;
@@ -94,9 +92,20 @@ div, button {
 }
 
 /* PICK SHOW PAGE */
+
+.ps-title-blob {
+  position: absolute;
+  display: flex;
+}
+
 .ps-title {
   margin: auto;
   font-size: 64px;
   color: #3F3F3F;
   text-align: center;
 }
+
+
+
+
+
