@@ -2,6 +2,7 @@ import React, {Component}  from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Button, Box } from '@material-ui/core';
 import { FaSpotify } from 'react-icons/fa';
+import environment from '../../environments/environment';
 
 import SpotifyWebApi from 'spotify-web-api-js';
 
@@ -36,6 +37,7 @@ class Index extends Component {
             spotifyApi.setAccessToken(token);
         }
         this.state = {
+            loginUrl: environment.api_domain + "login",
             loggedIn: token ? true : false,
             nowPlaying: { name: 'Not Checked', albumArt:'' }
         }
@@ -84,7 +86,7 @@ class Index extends Component {
                     
                     </div>
                     <Button 
-                        href="http://localhost:8888/login"
+                        href={this.state.loginUrl}
                         variant="contained"
                         disableRipple="true"
                         startIcon={<FaSpotify/>}
