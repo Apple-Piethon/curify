@@ -40,25 +40,25 @@ const PickShow = () => {
             >
                 <Grid item>
                     <IconButton 
-                        href="/pickplaylist" 
+                        href="/playlistpick" 
                         onClick={() => setShowOption("Movies")} 
-                        disableRipple="true">
+                        disableRipple="false">
                         <BlobOption option="Movies"/>
                     </IconButton>
                 </Grid>
 
                 <Grid item>
                     <IconButton 
-                        href="/pickplaylist" 
+                        href="/playlistpick" 
                         onClick={() => setShowOption("Series")} 
-                        disableRipple="true">
+                        disableRipple="false">
                         <BlobOption option="Series"/>
                     </IconButton>
                 </Grid>
 
                 <Grid item>
                     <IconButton 
-                        href="/pickplaylist"
+                        href="/playlistpick"
                         onClick={() => setShowOption("Both")} 
                         disableRipple="true">
                         <BlobOption option="Both"/>
@@ -70,4 +70,4 @@ const PickShow = () => {
     )
 }
 
-export default PickShow
+export default PickShow;

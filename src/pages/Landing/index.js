@@ -24,8 +24,6 @@ const useStyles = theme => ({
         margin: theme.spacing(5),
         borderRadius: "5em",
     },
-    
-
 });
 
 class Index extends Component {
