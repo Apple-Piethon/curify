@@ -5,6 +5,7 @@ import NotFound from '../pages/NotFound'
 import PickShow from '../pages/PickShow'
 import {Auth} from '../api/spotify';
 import Callback from '../pages/Callback';
+import PickPlaylist from '../pages/PickPlaylist';
 
 const Routes = () => {
     return (
@@ -12,17 +13,26 @@ const Routes = () => {
             <Route exact path="/">
                 <Landing />
             </Route>
-            <Route exact path="/login" component={() => {
-                window.location.href = Auth;
-                return null;
-            }}>
+
+            <Route exact path="/login" 
+                component={() => {
+                    window.location.href = Auth;
+                    return null;
+                }}>
             </Route>
+
             <Route path="/callback">
                 <Callback />
             </Route>
+
             <Route exact path="/showpick">
                 <PickShow />
             </Route>
+
+            <Route exact path="/playlistpick">
+                <PickPlaylist />
+            </Route>
+            
             <Route exact path="*">
                 <NotFound />
             </Route>

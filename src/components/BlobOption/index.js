@@ -8,11 +8,17 @@ const BlobOption = props => {
     const option = props.option;
 
     return (
-        <Box display="flex" justifyContent="center" alignItems="center">
+        <Box 
+            display="flex" 
+            justifyContent="center" 
+            alignItems="center"
+        >
             <div className="ps-blob">
-                {option === "Movies" ? <MovieBlob/>
+                { option === "Movies" ? <MovieBlob/>
                 : option === "Series" ? <SeriesBlob/>
-                : <BothBlob />}
+                : option === "Both"   ? <BothBlob /> 
+                : {}
+                }
             </div>
             <div className="ps-blob-title">
                 {option}

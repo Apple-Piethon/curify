@@ -26,7 +26,9 @@ div, button {
   font-family: 'CircularStd';
 }
 
-/* LANDING PAGE */
+/* ================================================================================= */
+/* LANDING PAGE 
+/* ================================================================================= */
 #container {
   display: flex;
   align-items: center;
@@ -91,8 +93,10 @@ div, button {
   text-align: center;
 }
 
-/* PICK SHOW PAGE */
 
+/* ================================================================================= */
+/* PICK SHOW PAGE
+/* ================================================================================= */
 .ps-title-box {
   position: absolute;
   display: flex;
@@ -106,6 +110,11 @@ div, button {
   text-align: center;
 }
 
+.ps-div {
+  height: 150px;
+  width: 280px;
+}
+
 .ps-blob {
   position: absolute;
   display: flex;
@@ -113,12 +122,18 @@ div, button {
 
 .ps-blob-title {
   position: relative;
-  margin: auto;
   font-size: 64px;
   color: #FFFFFF;
   text-align: center;
 }
 
+svg {
+  pointer-events: none;
+}
+
+path {
+  pointer-events: auto;
+}
 
 
 

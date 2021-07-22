@@ -1,7 +1,13 @@
 import React from 'react';
-import { Box, Grid, SvgIcon, DeleteIcon} from '@material-ui/core';
+import { Box, Grid, IconButton} from '@material-ui/core';
 import { ReactComponent as TitleBlob } from '../../assets/images/ps-title.svg';
 import BlobOption from '../../components/BlobOption';
+
+// User's picked option
+var showOption;
+
+const setShowOption = option => {showOption = option};
+
 
 const PickShow = () => {
     return (
@@ -9,7 +15,8 @@ const PickShow = () => {
             display="grid" 
             bgcolor="#EEEEE"
             alignItems="center" 
-            justifyContent="center">
+            justifyContent="center"
+            >
 
             <Box
                 display="flex"
@@ -27,12 +34,36 @@ const PickShow = () => {
             <Grid
                 container
                 direction="row"
-                justifyContent="center"
-                alignItems="center"
+                justifyContent="space-between"
+                alignItems="center"  
+                spacing={10}              
             >
+                <Grid item>
+                    <IconButton 
+                        href="/pickplaylist" 
+                        onClick={() => setShowOption("Movies")} 
+                        disableRipple="true">
+                        <BlobOption option="Movies"/>
+                    </IconButton>
+                </Grid>
 
-               <BlobOption option="Movies"/>
+                <Grid item>
+                    <IconButton 
+                        href="/pickplaylist" 
+                        onClick={() => setShowOption("Series")} 
+                        disableRipple="true">
+                        <BlobOption option="Series"/>
+                    </IconButton>
+                </Grid>
 
+                <Grid item>
+                    <IconButton 
+                        href="/pickplaylist"
+                        onClick={() => setShowOption("Both")} 
+                        disableRipple="true">
+                        <BlobOption option="Both"/>
+                    </IconButton>
+                </Grid>
             </Grid>
 
         </Box>
