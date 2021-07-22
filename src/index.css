@@ -93,17 +93,32 @@ div, button {
 
 /* PICK SHOW PAGE */
 
-.ps-title-blob {
+.ps-title-box {
   position: absolute;
   display: flex;
 }
 
 .ps-title {
+  position: relative;
   margin: auto;
   font-size: 64px;
   color: #3F3F3F;
   text-align: center;
 }
+
+.ps-blob {
+  position: absolute;
+  display: flex;
+}
+
+.ps-blob-title {
+  position: relative;
+  margin: auto;
+  font-size: 64px;
+  color: #FFFFFF;
+  text-align: center;
+}
+
 
 
 
