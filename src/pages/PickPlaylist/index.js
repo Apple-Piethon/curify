@@ -1,8 +1,11 @@
 import React from 'react'
+import PickShow from '../PickShow'
 
-const PickPlaylist = () => {
+const PickPlaylist = (props) => {
     return (
-        <div>HELLO</div>
+        <div>
+            <a href="/loading">Go next</a>
+        </div>
     )
 }
 

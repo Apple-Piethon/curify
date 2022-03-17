@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Box, Grid, IconButton} from '@material-ui/core';
 import { ReactComponent as TitleBlob } from '../../assets/images/ps-title.svg';
 import BlobOption from '../../components/BlobOption';
@@ -10,6 +10,7 @@ const setShowOption = option => {showOption = option};
 
 
 const PickShow = () => {
+
     return (
         <Box 
             display="grid" 
@@ -41,7 +42,7 @@ const PickShow = () => {
                 <Grid item>
                     <IconButton 
                         href="/playlistpick" 
-                        onClick={() => setShowOption("Movies")} 
+                        onClick={ () => setShowOption("Movies") }    
                         disableRipple="false">
                         <BlobOption option="Movies"/>
                     </IconButton>
@@ -50,7 +51,7 @@ const PickShow = () => {
                 <Grid item>
                     <IconButton 
                         href="/playlistpick" 
-                        onClick={() => setShowOption("Series")} 
+                        onClick={ () => setShowOption("Series") } 
                         disableRipple="false">
                         <BlobOption option="Series"/>
                     </IconButton>
@@ -59,7 +60,7 @@ const PickShow = () => {
                 <Grid item>
                     <IconButton 
                         href="/playlistpick"
-                        onClick={() => setShowOption("Both")} 
+                        onClick={ () => setShowOption("Both") } 
                         disableRipple="true">
                         <BlobOption option="Both"/>
                     </IconButton>
@@ -67,7 +68,7 @@ const PickShow = () => {
             </Grid>
 
         </Box>
-    )
+    );
 }
 
 export default PickShow;

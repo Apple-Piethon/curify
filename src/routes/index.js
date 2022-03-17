@@ -6,6 +6,7 @@ import PickShow from '../pages/PickShow'
 import {Auth} from '../api/spotify';
 import Callback from '../pages/Callback';
 import PickPlaylist from '../pages/PickPlaylist';
+import Loading from '../pages/Loading';
 
 const Routes = () => {
     return (
@@ -32,7 +33,11 @@ const Routes = () => {
             <Route exact path="/playlistpick">
                 <PickPlaylist />
             </Route>
-            
+           
+            <Route exact path="/loading">
+                <Loading />
+            </Route>
+
             <Route exact path="*">
                 <NotFound />
             </Route>

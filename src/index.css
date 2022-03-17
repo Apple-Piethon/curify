@@ -146,5 +146,20 @@ div, button {
 
 
 
+/* ================================================================================= */
+/* LOADING PAGE
+/* ================================================================================= */
 
+.lp-title {
+  position: relative;
+  margin: auto;
+  font-size: 64px;
+  color: #FBEA37;
+  text-align: center;
+}
 
+.lp-dot {
+  font-size: 64px;
+  color: #FBEA37;
+  text-align: center;
+}
