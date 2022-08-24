@@ -1,3 +1,6 @@
+# Access Curify (in production)
+https://curify-app.herokuapp.com/
+
 # Getting Started with Curify
 
 ## Available Scripts
