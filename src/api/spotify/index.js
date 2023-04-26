@@ -1,4 +1,6 @@
 import environment from '../../environments/environment';
+import { Buffer } from 'buffer';
+
 
 var querystring = require('querystring');
 
@@ -48,7 +50,9 @@ export const AuthOptions = {
     grant_type: 'authorization_code'
   },
   headers: {
-    'Authorization': 'Basic ' + (new Buffer(clientId + ':' + clientSecret).toString('base64'))
+    'Authorization': 'Basic ' + 
+    // (new Buffer(clientId + ':' + clientSecret).toString('base64'))
+    (Buffer.from(clientId + ":" + clientSecret).toString('base64'))
   },
   json: true
 }
