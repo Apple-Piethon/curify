@@ -39,6 +39,7 @@ class Index extends Component {
             loggedIn: token ? true : false,
             nowPlaying: { name: 'Not Checked', albumArt:'' }
         }
+        console.log("Params");
         console.log(params);
     }
 

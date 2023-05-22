@@ -59,13 +59,19 @@ export const AuthOptions = {
 
 // info about the current user that is signed in, can add more stuff later like name,
 // country, etc.
-export const User = {
-  accessToken: null,
-  refreshToken: null
-}
+// export const User = {
+//   accessToken: null,
+//   refreshToken: null,
+//   profile: null,      // impt spotify info
+//   showPick: null,     // movie/show/both
+//   playlistPick: null,
+//   result: null,
+// }
 
 // export const loginUrl = `${authEndpoint}?client_id=${clientId}&response_type=code&redirect_uri=${redirectUri}&scope=${scopes.join(
 //   "%20"
 // )}`;
 
 // loginUrl = "https://accounts.spotify.com/authorize?client_id=YourClientId&response_type=code&redirect_uri=https://localhost:3000/&scope=streaming%20user-read-email%20user-read-private"
+
+

@@ -1,14 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Switch, Route} from 'react-router-dom'
 import Landing from '../pages/Landing'
 import NotFound from '../pages/NotFound'
 import PickShow from '../pages/PickShow'
-import {Auth} from '../api/spotify';
+import { Auth } from '../api/spotify';
 import Callback from '../pages/Callback';
 import PickPlaylist from '../pages/PickPlaylist';
 import Loading from '../pages/Loading';
+// import User from '../pages/User';
 
 const Routes = () => {
+
+    const [user, setUser] = useState({ 
+        accessToken: null,
+        refreshToken: null,
+        profile: null,
+        showPick: null,
+        playlistPick: null,
+        result: null
+    })
+
+    const handleUserChange = (prop, value) => {
+        setUser({
+          ...user,
+          [prop]: value
+        })        
+    }
+
+    const showUser = () => {
+        console.log(user);
+    }
+
     return (
         <Switch>
             <Route exact path="/">
@@ -23,15 +45,15 @@ const Routes = () => {
             </Route>
 
             <Route path="/callback">
-                <Callback />
+                <Callback handleUserChange={handleUserChange}/>
             </Route>
 
             <Route exact path="/showpick">
-                <PickShow />
+                <PickShow handleUserChange={handleUserChange} showUser={showUser}/>
             </Route>
 
             <Route exact path="/playlistpick">
-                <PickPlaylist />
+                <PickPlaylist handleUserChange={handleUserChange} showUser={showUser}/>
             </Route>
            
             <Route exact path="/loading">

@@ -1,6 +1,14 @@
 import React, {Component} from 'react';
 import { Redirect } from 'react-router-dom';
-import {AuthOptions, User} from '../../api/spotify';
+import { AuthOptions } from '../../api/spotify';
+
+async function fetchProfile(token) {
+    const result = await fetch("https://api.spotify.com/v1/me", {
+        method: "GET", headers: { Authorization: `Bearer ${token}` }
+    });
+  
+    return await result.json();
+  }
 
 class Callback extends Component {
 
@@ -46,12 +54,10 @@ class Callback extends Component {
                         return Promise.reject(error);
                     }
 
-                    // save user's access token and refresh token
-                    User.accessToken = data.access_token;
-                    User.refreshToken = data.refresh_token;
-
-                    console.log("ACCESS TOKEN", User.accessToken);
-                    console.log("REFRESH TOKEN", User.refreshToken);
+                    // save user's access token and refresh token                
+                    this.props.handleUserChange('accessToken', data.access_token);
+                    this.props.handleUserChange('refreshToken', data.refresh_token);
+                    this.props.handleUserChange('profile', fetchProfile(data.access_token));
 
                     this.setState({
                         loading: false,
