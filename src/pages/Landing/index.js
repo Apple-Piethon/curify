@@ -87,9 +87,9 @@ class Index extends Component {
                     <Button 
                         href={this.state.loginUrl}
                         variant="contained"
-                        disableRipple="true"
-                        justifyContent="center"
-                        alignItems="center"
+                        // disableRipple="true"
+                        // justifyContent="center"
+                        // alignItems="center"
                         startIcon={<FaSpotify/>}
                         className={classes.button}
                         classes={{root: classes.root}}

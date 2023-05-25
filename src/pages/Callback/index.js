@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { Component, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { AuthOptions } from '../../api/spotify';
+import { UserProvider, useUser, useUserUpdate } from '../../UserProvider';
 
 async function fetchProfile(token) {
     const result = await fetch("https://api.spotify.com/v1/me", {
@@ -10,7 +11,8 @@ async function fetchProfile(token) {
     return await result.json();
   }
 
-class Callback extends Component {
+class Callback extends Component {  
+    
 
     constructor(props) {
         super(props);
@@ -19,6 +21,8 @@ class Callback extends Component {
             loading: true,
             error: false
         }
+
+
     }
 
     componentDidMount() {
@@ -54,11 +58,13 @@ class Callback extends Component {
                         return Promise.reject(error);
                     }
 
-                    // save user's access token and refresh token                
-                    this.props.handleUserChange('accessToken', data.access_token);
-                    this.props.handleUserChange('refreshToken', data.refresh_token);
-                    this.props.handleUserChange('profile', fetchProfile(data.access_token));
+                    // save user's access token and refresh token     
+                    // const toggleUser = useUserUpdate();
 
+                    // toggleUser('accessToken', data.access_token);
+                    // toggleUser('refreshToken', data.refresh_token);
+                    // toggleUser('profile', fetchProfile(data.access_token));
+                    
                     this.setState({
                         loading: false,
                         error: false
@@ -74,14 +80,19 @@ class Callback extends Component {
         }
     }
 
+
     render() {
+
+        
+
+        
         if (this.state.loading) {
             return (
                 <h1>Please wait a moment...</h1>
             );
         } else {
             // redirect back to homepage if error else redirect to showpick after access tokens are generated
-            return this.state.error ? (<Redirect push to="/"/>) : (<Redirect push to="/showpick"/>)
+            return this.state.error ? (<Navigate push to="/"/>) : (<Navigate push to="/showpick"/>)
         }
     }
 }

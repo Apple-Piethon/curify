@@ -42,7 +42,8 @@ const PickShow = (props) => {
                     <IconButton 
                         href="/playlistpick" 
                         onClick = { () => setShowPick("movies") }
-                        disableRipple="false">
+                        // disableRipple="false"
+                        >
                         <BlobOption option="Movies"/>
                     </IconButton>
                 </Grid>
@@ -51,7 +52,8 @@ const PickShow = (props) => {
                     <IconButton 
                         href="/playlistpick" 
                         onClick = { () => setShowPick("series") }
-                        disableRipple="false">
+                        // disableRipple="false
+                        >
                         <BlobOption option="Series"/>
                     </IconButton>
                 </Grid>
@@ -60,7 +62,8 @@ const PickShow = (props) => {
                     <IconButton 
                         href="/playlistpick"
                         onClick = { () => setShowPick("both") }
-                        disableRipple="true">
+                        // disableRipple="true"
+                        >
                         <BlobOption option="Both"/>
                     </IconButton>
                 </Grid>
