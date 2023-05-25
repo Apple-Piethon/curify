@@ -1,7 +1,6 @@
 import React, { Component, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { AuthOptions } from '../../api/spotify';
-import { UserProvider, useUser, useUserUpdate } from '../../UserProvider';
 
 async function fetchProfile(token) {
     const result = await fetch("https://api.spotify.com/v1/me", {
@@ -21,8 +20,6 @@ class Callback extends Component {
             loading: true,
             error: false
         }
-
-
     }
 
     componentDidMount() {
@@ -58,12 +55,10 @@ class Callback extends Component {
                         return Promise.reject(error);
                     }
 
-                    // save user's access token and refresh token     
-                    // const toggleUser = useUserUpdate();
-
-                    // toggleUser('accessToken', data.access_token);
-                    // toggleUser('refreshToken', data.refresh_token);
-                    // toggleUser('profile', fetchProfile(data.access_token));
+                    // save user's access token and refresh token 
+                    this.props.setUser('accessToken', data.access_token);
+                    this.props.setUser('refreshToken', data.refresh_token);
+                    this.props.setUser('profile', fetchProfile(data.access_token));
                     
                     this.setState({
                         loading: false,
@@ -82,9 +77,6 @@ class Callback extends Component {
 
 
     render() {
-
-        
-
         
         if (this.state.loading) {
             return (

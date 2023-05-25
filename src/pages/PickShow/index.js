@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Grid, IconButton} from '@material-ui/core';
 import { ReactComponent as TitleBlob } from '../../assets/images/ps-title.svg';
 import BlobOption from '../../components/BlobOption';
+import { Navigate } from 'react-router-dom';
 
 
-const PickShow = (props) => {
+const PickShow = props => {
+    const [picked, setPicked] = useState(false);
+
     const setShowPick = option => {
-        props.handleUserChange('showPick', option); 
-        props.showUser();
+        props.setUser('showPick', option);      
+        setPicked(true);
     }
 
     return (
+        picked ? (<Navigate push to="/playlistpick"/>) : 
         <Box 
             display="grid" 
             bgcolor="#EEEEE"
@@ -39,31 +43,19 @@ const PickShow = (props) => {
                 spacing={10}              
             >
                 <Grid item>
-                    <IconButton 
-                        href="/playlistpick" 
-                        onClick = { () => setShowPick("movies") }
-                        // disableRipple="false"
-                        >
+                    <IconButton onClick = { () => setShowPick("movies") }>
                         <BlobOption option="Movies"/>
                     </IconButton>
                 </Grid>
 
                 <Grid item>
-                    <IconButton 
-                        href="/playlistpick" 
-                        onClick = { () => setShowPick("series") }
-                        // disableRipple="false
-                        >
+                    <IconButton onClick = { () => setShowPick("series") } >
                         <BlobOption option="Series"/>
                     </IconButton>
                 </Grid>
 
                 <Grid item>
-                    <IconButton 
-                        href="/playlistpick"
-                        onClick = { () => setShowPick("both") }
-                        // disableRipple="true"
-                        >
+                    <IconButton onClick = { () => setShowPick("both") } >
                         <BlobOption option="Both"/>
                     </IconButton>
                 </Grid>

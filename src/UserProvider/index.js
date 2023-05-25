@@ -21,7 +21,7 @@ export function UserProvider( {children} ) {
         result: null,
     })
 
-    function toggleUser(prop, value) {
+    function setUser(prop, value) {
         setUserState(user => ({
             ...user,
             [prop]: value,
@@ -30,7 +30,7 @@ export function UserProvider( {children} ) {
 
     return (
         <UserContext.Provider value={userState}>
-            <UserUpdateContext.Provider value={toggleUser}>
+            <UserUpdateContext.Provider value={setUser}>
                 {children}
             </UserUpdateContext.Provider>
         </UserContext.Provider>
