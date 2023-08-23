@@ -4,10 +4,9 @@ import { ReactComponent as TitleBlob } from '../../assets/images/ps-title.svg';
 import BlobOption from '../../components/BlobOption';
 
 
-const PickShow = (props) => {
+const PickShow = () => {
     const setShowPick = option => {
-        props.handleUserChange('showPick', option); 
-        props.showUser();
+        sessionStorage.setItem('showPick', option);
     }
 
     return (
@@ -42,7 +41,8 @@ const PickShow = (props) => {
                     <IconButton 
                         href="/playlistpick" 
                         onClick = { () => setShowPick("movies") }
-                        disableRipple="false">
+                        disableRipple
+                        >
                         <BlobOption option="Movies"/>
                     </IconButton>
                 </Grid>
@@ -51,7 +51,8 @@ const PickShow = (props) => {
                     <IconButton 
                         href="/playlistpick" 
                         onClick = { () => setShowPick("series") }
-                        disableRipple="false">
+                        disableRipple
+                        >
                         <BlobOption option="Series"/>
                     </IconButton>
                 </Grid>
@@ -60,7 +61,8 @@ const PickShow = (props) => {
                     <IconButton 
                         href="/playlistpick"
                         onClick = { () => setShowPick("both") }
-                        disableRipple="true">
+                        disableRipple
+                        >
                         <BlobOption option="Both"/>
                     </IconButton>
                 </Grid>

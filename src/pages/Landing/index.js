@@ -39,8 +39,6 @@ class Index extends Component {
             loggedIn: token ? true : false,
             nowPlaying: { name: 'Not Checked', albumArt:'' }
         }
-        console.log("Params");
-        console.log(params);
     }
 
     getHashParams() {
@@ -87,9 +85,9 @@ class Index extends Component {
                     <Button 
                         href={this.state.loginUrl}
                         variant="contained"
-                        disableRipple="true"
-                        justifyContent="center"
-                        alignItems="center"
+                        disableRipple
+                        justifycontent="center"
+                        alignitems="center"
                         startIcon={<FaSpotify/>}
                         className={classes.button}
                         classes={{root: classes.root}}

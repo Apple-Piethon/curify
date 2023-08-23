@@ -54,10 +54,12 @@ class Callback extends Component {
                         return Promise.reject(error);
                     }
 
-                    // save user's access token and refresh token                
-                    this.props.handleUserChange('accessToken', data.access_token);
-                    this.props.handleUserChange('refreshToken', data.refresh_token);
-                    this.props.handleUserChange('profile', fetchProfile(data.access_token));
+                    // save user's access token and refresh token
+                    sessionStorage.setItem('accessToken', data.access_token);
+                    sessionStorage.setItem('refreshToken', data.refresh_token);
+
+                    const profileObject = await fetchProfile(data.access_token)
+                    sessionStorage.setItem('profile', JSON.stringify(profileObject));
 
                     this.setState({
                         loading: false,
