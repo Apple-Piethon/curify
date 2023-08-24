@@ -1,10 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import PickShow from '../PickShow'
+import { makeStyles } from '@material-ui/core/styles';
+import { Button, Card, CardMedia } from '@material-ui/core';
+
+const useStyles = makeStyles((theme) => ({
+    root: {
+        backgroundColor: '#231E20',
+        color: 'white',
+    },
+    button: {
+        
+    },
+    card: {
+        backgroundColor: 'rgba(10, 10, 10, 0.2)',
+    },
+    item: {
+        backgroundColor: 'rgba(116, 104, 104, 0.2)',
+        color: 'white',
+    }
+}))
 
 const PickPlaylist = () => {
+    const classes = useStyles();
     const [playlists, setPlaylists] = useState([]);
 
     async function fetchUserPlaylists(token) {
+        // UPDATE LIMIT
         const result = await fetch(`https://api.spotify.com/v1/users/${userId}/playlists?limit=10`, {
             method: "GET", headers: { Authorization: `Bearer ${token}` }
         });
@@ -27,25 +48,37 @@ const PickPlaylist = () => {
     }, [])
         
     console.log("waiting", playlists);
-    console.log(sessionStorage);
 
 
 
     return (
-        <div className='pp-page'>
-            <a href="/showpick">Back</a>
-            User's playlists
-            <ul>
-                {playlists
-                    .filter(playlist => playlist.owner.id === userId)
-                    .map(playlist => (                    
-                        <li key={playlist.id}>
-                            <p>Name: {playlist.name}</p>
-                            <p>Owner: {playlist.owner.id}</p>
-                        </li>
-                ))}
+        <div className={classes.root}>
+            <Button variant="contained" disableRipple href="/showpick">BACK</Button>
+            <div>
+
+                <div>Pick your playlist.</div>
+                <div>SEE ALL</div>
                 
-            </ul>
+                    <Card className={classes.card}>
+                    {playlists
+                        .filter(playlist => playlist.owner.id === userId)
+                        .slice(0, 3)
+                        .map(playlist => (   
+
+                            <Card className={classes.item} key={playlist.id}>
+                                <img
+                                    alt="Playlist album art"
+                                    src={playlist.images[0].url}
+                                    height='100px'
+                                />
+                                <p>Name: {playlist.name}</p>    
+                                
+                                
+                            </Card>                 
+                    ))}
+                    </Card>
+                    
+            </div>
         </div>
     )
 }
