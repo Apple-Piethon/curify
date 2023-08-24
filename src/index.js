@@ -3,16 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter as Router} from 'react-router-dom'
+import { UserProvider } from './UserProvider';
 
-import Routes from './routes';
+import Routing from './routing';
 
 ReactDOM.render(
-  <Router>
-    <React.StrictMode>
-      <Routes />
-    </React.StrictMode>
-  </Router>,
-  document.getElementById('root')
+  <UserProvider>
+    <Router>
+      <React.StrictMode>
+        <Routing />
+      </React.StrictMode>
+    </Router>
+  </UserProvider>
+  
+  ,document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

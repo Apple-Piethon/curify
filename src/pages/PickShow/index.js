@@ -1,15 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Grid, IconButton} from '@material-ui/core';
 import { ReactComponent as TitleBlob } from '../../assets/images/ps-title.svg';
 import BlobOption from '../../components/BlobOption';
+import { Navigate } from 'react-router-dom';
 
 
 const PickShow = () => {
+    const [picked, setPicked] = useState(false);
+
     const setShowPick = option => {
         sessionStorage.setItem('showPick', option);
+        setPicked(true);
     }
 
     return (
+        picked ? (<Navigate push to="/playlistpick"/>) : 
         <Box 
             display="grid" 
             bgcolor="#EEEEE"
@@ -39,7 +44,6 @@ const PickShow = () => {
             >
                 <Grid item>
                     <IconButton 
-                        href="/playlistpick" 
                         onClick = { () => setShowPick("movies") }
                         disableRipple
                         >
@@ -49,7 +53,6 @@ const PickShow = () => {
 
                 <Grid item>
                     <IconButton 
-                        href="/playlistpick" 
                         onClick = { () => setShowPick("series") }
                         disableRipple
                         >
@@ -59,7 +62,6 @@ const PickShow = () => {
 
                 <Grid item>
                     <IconButton 
-                        href="/playlistpick"
                         onClick = { () => setShowPick("both") }
                         disableRipple
                         >

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import { Redirect } from 'react-router-dom';
+import React, { Component, useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { AuthOptions } from '../../api/spotify';
 
 async function fetchProfile(token) {
@@ -10,7 +10,8 @@ async function fetchProfile(token) {
     return await result.json();
   }
 
-class Callback extends Component {
+class Callback extends Component {  
+    
 
     constructor(props) {
         super(props);
@@ -76,14 +77,16 @@ class Callback extends Component {
         }
     }
 
+
     render() {
+        
         if (this.state.loading) {
             return (
                 <h1>Please wait a moment...</h1>
             );
         } else {
             // redirect back to homepage if error else redirect to showpick after access tokens are generated
-            return this.state.error ? (<Redirect push to="/"/>) : (<Redirect push to="/showpick"/>)
+            return this.state.error ? (<Navigate push to="/"/>) : (<Navigate push to="/showpick"/>)
         }
     }
 }
